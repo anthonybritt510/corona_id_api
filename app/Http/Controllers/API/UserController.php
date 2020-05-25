@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Mail;
 
 class UserController extends Controller
 {
@@ -112,6 +113,11 @@ class UserController extends Controller
         $user->email_verify_code = rand(1000, 9999);
         $user->save();
         $user->refresh();
+        
+        Mail::raw('Email Verification code is ' . $user->email_verify_code, function($message) use($user) {
+            $message->to($user->email)
+                ->subject('Corona ID email verification');
+        });
         // Mail::to($user)->send(new MailableClass());
         return response()->json(array('result' => 'success', 'data' => $user), $this->successStatus);
     }

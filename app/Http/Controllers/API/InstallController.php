@@ -11,7 +11,7 @@ class InstallController extends Controller
     public $errorStatus = 202;
 
     public function createSymlink(Request $request) {
-        $target = storage_path();
+        $target = storage_path('app/public');
         $link = public_path('storage');
         symlink($target, $link);
     }
