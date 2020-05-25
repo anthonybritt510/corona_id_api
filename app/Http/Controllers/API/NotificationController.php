@@ -2,11 +2,9 @@
 
 namespace App\Http\Controllers\API;
 
-use App\Events\PerformTest;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Model\Notification;
-use App\Model\Test;
 use Illuminate\Support\Facades\Auth;
 
 class NotificationController extends Controller
