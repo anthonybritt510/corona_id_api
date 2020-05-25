@@ -18,7 +18,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('createSymlink', 'API\UserController@createSymlink');
+Route::get('createSymlink', 'API\InstallController@createSymlink');
 Route::post('login', 'API\UserController@login');
 Route::post('register', 'API\UserController@register');
 
