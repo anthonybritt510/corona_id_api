@@ -14,4 +14,6 @@ class InstallController extends Controller
 
     public function createSymlink(Request $request) {
     }
+
+
 }
