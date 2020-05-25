@@ -61,7 +61,7 @@ User Register
 			"updated_at": "2020-05-24T13:49:34.000000Z",
 			"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIzIiwianRpIjoiOGQ3Y2NkZWViNmFiYTBiZmUwYmFhMzM4MWE0NmMzM2VmN2M3MmJkZjE3YWFmN2EwOWM4OGFkNGYyOWVmMGFjOTliMjM2ZWI0ZjQ0NmVjNTYiLCJpYXQiOjE1OTAzMjgxNzQsIm5iZiI6MTU5MDMyODE3NCwiZXhwIjoxNjIxODY0MTc0LCJzdWIiOiIzNyIsInNjb3BlcyI6W119.i9htmcAVidAlYQvK3ZBu76MI6FwXxsXLAFIQ6kBTOD2MPuAV0ty7YyFngfOc9y0UUsp0yq9A_3hNcBOJA22mWX8o9MMOPOxTwNIQIInRNcslpTlcyRRWXX8bAABjbA9HRzvqAIDusyU5UjDN5ndKoc7nKfaBy3cna_qAz9O6eW14bFUWgFoeVq6Hv_asA41qSJeLrW37YVxVgWJwHl8dpV_8Sm6A782f1VDLsA_MkvVMWTRqA7DlUP4kOOOy1pXBwZh9Oj9wsv9VrYgGnOuS3gqloWMW9q_KCglm1_IXKLhCPDaauJV7wv4HQNEjVfezW-4WJ4HJs4mlnnuVoiE2NQ7t0MOfglTjeIasRhiyrHWQEwppIkLydiz6vDzV26c3bZEMhNBHcy4pXsejfKr-2eewKUxc98au_kKqNE1NLSEkMJLJ6evf7uO3GGlNj51foETkfDEWZbiGLsGVpEMIkBHECiNWUNGEk9_TnyuS8rkzvy82LbfxcaeL1nE0x8hoxH7-Pn2q1F3aagy9wGtjkFdILcxnYxcSEIoh23YdneZFj7iQEisFSGtSj5acDglr4Mw-Fuk5yDldE7n_LzmXluqRMr2lJSpUEri43cPug_8Suonkb_0vz5Ae3k0fctNw0lF1Jn6dcsZQpjKvDY3xGtCV8ulGYspsv_-4JQv4u7s",
 			"name": "Jovan Markovic",
-			"test_status": "not_tested_for_1_week"
+			"test_status": "not_tested_for_1_week" ("not_tested_for_1_week", "positive", "negative")
 		}
 	}
 
@@ -408,7 +408,7 @@ Get test history by patient
 
 Get test history by professional
 - Request
-	POST: http://192.168.0.171/api/getTestsByProfessinoal
+	POST: http://192.168.0.171/api/getTestsByProfessional
 	Header: (common-header)
 		Authorization: "Bearer {---- Your API Token ----}"
 	Body:

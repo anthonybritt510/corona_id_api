@@ -30,7 +30,7 @@ Route::group(['middleware' => 'auth:api'], function () {
 
     Route::post('addTest', 'API\TestController@addTest');
     Route::post('getTestsByPatient', 'API\TestController@getTestsByPatient');
-    Route::post('getTestsByProfessinoal', 'API\TestController@getTestsByProfessinoal');
+    Route::post('getTestsByProfessional', 'API\TestController@getTestsByProfessional');
 
     Route::post('getNotifications', 'API\NotificationController@getNotifications');
 

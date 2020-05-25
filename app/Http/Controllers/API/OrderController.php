@@ -38,14 +38,19 @@ class OrderController extends Controller
         }
 
         Stripe::setApiKey(config('app.stripe_key'));
-        $token = Token::create([
-            'card' => [
-                'number' => $input['card_number'],
-                'exp_month' => intval($expMonth),
-                'exp_year' =>intval($expYear),
-                'cvc' => $input['card_cvc'],
-            ]
-        ]);
+
+        try {
+            $token = Token::create([
+                'card' => [
+                    'number' => $input['card_number'],
+                    'exp_month' => intval($expMonth),
+                    'exp_year' =>intval($expYear),
+                    'cvc' => $input['card_cvc'],
+                ]
+            ]);
+        } catch (Exception $e) {
+            Log::Debug($e);
+        }
 
         Stripe::setApiKey(config('app.stripe_secret'));
         $charge = Charge::create([

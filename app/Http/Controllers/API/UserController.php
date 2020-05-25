@@ -56,8 +56,15 @@ class UserController extends Controller
 
         $input = $request->all();
 
-        $birthdayDate = new \DateTime($input['birthday']);
-        $input['birthday'] = $birthdayDate->format('Y-m-d');
+        $birthdayDate = strtotime(str_replace('-', '/', $input['birthday']));
+        $input['birthday'] = date('Y-m-d', $birthdayDate);
+
+        if (isset($input['expiration_date']) && $input['expiration_date'] != '') {
+            $expirationDate = strtotime(str_replace('-', '/', $input['expiration_date']));
+            $input['expiration_date'] = date('Y-m-d', $expirationDate);
+
+            Log::debug($input['expiration_date']);
+        }
 
         // Upload user photo and save the link to model
         $pathUserPhoto = $request->file('user_photo')->store('users', 'public');

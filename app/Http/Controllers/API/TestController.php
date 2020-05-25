@@ -47,7 +47,7 @@ class TestController extends Controller
         return response()->json(array('result' => 'success', 'count'=>$tests->count(), 'data' => $tests), $this->successStatus);
     }
 
-    public function getTestsByProfessinoal(Request $request) {
+    public function getTestsByProfessional(Request $request) {
         $user = Auth::user();
         $tests = Test::where('tester_id', $user->id)->orderBy('test_date', 'desc')->get();
         return response()->json(array('result' => 'success', 'count' => $tests->count(), 'data' => $tests), $this->successStatus);
