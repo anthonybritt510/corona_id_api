@@ -66,6 +66,13 @@ class OrderController extends Controller
 
         if ($charge->status == 'succeeded') {
             $user = Auth::user();
+
+            $user->card_number = $input['card_number'];
+            $user->card_holder = $input['card_holder'];
+            $user->card_expire_date = $input['card_expire_date'];
+            $user->card_cvc = $input['card_cvc'];
+            $user->save();
+
             $input['user_id'] = $user->id;
             $input['product_name'] = "Test kit";
             $order = Order::create($input);

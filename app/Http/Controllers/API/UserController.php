@@ -52,6 +52,9 @@ class UserController extends Controller
         if (User::where('document_number', $request->get('document_number'))->count() > 0) {
             $user = User::where('document_number', $request->get('document_number'))->first();
             $input = $request->all();
+            $user['token'] =  $user->createToken('MyApp')->accessToken;
+            $user['name'] =  $user->getFullname();
+            $user['test_status'] = $this->checkUserStatus($user);
             return response()->json(array('result' => 'success', 'data' => $user), $this->errorStatus);
         }
 
@@ -113,7 +116,7 @@ class UserController extends Controller
         $user->email_verify_code = rand(1000, 9999);
         $user->save();
         $user->refresh();
-        
+
         Mail::raw('Email Verification code is ' . $user->email_verify_code, function($message) use($user) {
             $message->to($user->email)
                 ->subject('Corona ID email verification');
